@@ -1,0 +1,466 @@
+/* =========================================
+   Design Tokens (NutriHouse Brand Guide v8.1)
+   ========================================= */
+   :root {
+    /* Brand Colors */
+    --magenta-vital: #D11653;
+    --magenta-light: rgba(209, 22, 83, 0.1);
+    --verde-hoja: #79A431;
+    --verde-light: rgba(121, 164, 49, 0.1);
+    --carbono: #0A0A0A;
+    --blanco-puro: #FFFFFF;
+    
+    /* Grays & Utilities */
+    --gray-dark: #1A1A1A;
+    --gray-mid: #333333;
+    --gray-light: #A0A0A0;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    
+    /* Typography */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* =========================================
+   Reset & Base Styles
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--carbono);
+    color: var(--blanco-puro);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow: hidden; /* Hide main scrollbar, we will use snap on container */
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 span {
+    color: var(--magenta-vital);
+}
+
+h2 span:nth-child(even) {
+    color: var(--verde-hoja);
+}
+
+.text-magenta { color: var(--magenta-vital); }
+.text-green { color: var(--verde-hoja); }
+.text-gray { color: var(--gray-light); }
+.text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-5 { margin-top: 3rem; }
+.mb-5 { margin-bottom: 3rem; }
+.p-4 { padding: 1.5rem; }
+.pl-4 { padding-left: 2rem; }
+.font-bold { font-weight: 600; }
+.text-sm { font-size: 0.9rem; }
+.max-w-lg { max-width: 800px; }
+
+/* =========================================
+   Layout & Slide System
+   ========================================= */
+.deck-container {
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    /* Hide scrollbar for aesthetics */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+.deck-container::-webkit-scrollbar {
+    display: none;
+}
+
+.slide {
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 4rem;
+}
+
+.slide-content {
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* When slide is in view via JS observer */
+.slide.active .slide-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+.split-layout.reverse {
+    grid-template-columns: 1.2fr 0.8fr;
+}
+
+.body-text {
+    font-size: 1.25rem;
+    color: var(--gray-light);
+    font-weight: 300;
+}
+
+/* =========================================
+   UI Components
+   ========================================= */
+.global-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.brand-logo {
+    height: 40px;
+    opacity: 0.8;
+}
+
+.progress-container {
+    width: 200px;
+    height: 4px;
+    background-color: var(--gray-dark);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 12.5%; /* 1 of 8 slides */
+    background-color: var(--magenta-vital);
+    transition: width 0.3s ease;
+}
+
+.controls {
+    position: fixed;
+    bottom: 3rem;
+    right: 4rem;
+    display: flex;
+    gap: 1rem;
+    z-index: 100;
+}
+
+.nav-btn {
+    background-color: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: var(--magenta-vital);
+    transform: scale(1.1);
+}
+
+.tag-label {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    border: 1px solid var(--magenta-vital);
+    color: var(--magenta-vital);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+.bento-glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 2rem;
+}
+
+.glass-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.glass-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255,255,255,0.2);
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--magenta-vital);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-top: 2rem;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(209, 22, 83, 0.3);
+}
+
+.cta-button.whatsapp {
+    background-color: var(--verde-hoja);
+}
+.cta-button.whatsapp:hover {
+    box-shadow: 0 10px 20px rgba(121, 164, 49, 0.3);
+}
+
+/* =========================================
+   Specific Slide Elements
+   ========================================= */
+
+/* Hero */
+.hero-title {
+    font-size: 4.5rem;
+    margin: 1.5rem 0;
+    line-height: 1.1;
+}
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--gray-light);
+    max-width: 700px;
+    margin: 0 auto;
+}
+.hero-logo {
+    height: 80px;
+}
+
+/* Bento Grid (Slide 2 & others) */
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+.alert-card {
+    background: var(--gray-dark);
+    border-left: 4px solid var(--magenta-vital);
+    padding: 2rem;
+    border-radius: 0 16px 16px 0;
+}
+.alert-card i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Three Columns (Slide 3) */
+.three-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1.5rem auto;
+}
+.bg-magenta-light { background-color: var(--magenta-light); color: var(--magenta-vital); }
+.bg-green-light { background-color: var(--verde-light); color: var(--verde-hoja); }
+
+/* Value Props (Slide 4) */
+.value-card {
+    background: var(--gray-dark);
+    border-radius: 24px;
+    padding: 2rem;
+    border: 1px solid var(--glass-border);
+}
+.value-card.B2C { border-top: 4px solid var(--verde-hoja); }
+.value-card.B2B { border-top: 4px solid var(--magenta-vital); }
+.value-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.value-header i { font-size: 2rem; }
+.value-card ul {
+    list-style: none;
+}
+.value-card li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    color: var(--gray-light);
+}
+
+/* Revenue Grid (Slide 5) */
+.revenue-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+.revenue-icon {
+    font-size: 2.5rem;
+    color: var(--verde-hoja);
+    margin-bottom: 1rem;
+}
+.featured {
+    border-color: var(--magenta-vital);
+    transform: scale(1.05);
+}
+
+/* Stats & Logos (Slide 6) */
+.stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+}
+.stat-item h3 {
+    font-size: 4rem;
+}
+.logos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.client-box {
+    background: var(--gray-dark);
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    color: var(--gray-light);
+    border: 1px solid var(--glass-border);
+}
+
+/* Profile (Slide 7) */
+.avatar-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--gray-dark);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--gray-light);
+    border: 2px solid var(--verde-hoja);
+}
+
+/* Contact (Slide 8) */
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* =========================================
+   Background Glows (Ambience)
+   ========================================= */
+.bg-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    filter: blur(120px);
+    z-index: 1;
+    opacity: 0.15;
+    border-radius: 50%;
+    pointer-events: none;
+}
+.magenta-glow {
+    background: var(--magenta-vital);
+    top: -100px;
+    left: -100px;
+}
+.green-glow {
+    background: var(--verde-hoja);
+    bottom: -100px;
+    right: -100px;
+}
+.center-glow {
+    background: var(--magenta-vital);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.1;
+}
+.magenta-glow-right {
+    background: var(--magenta-vital);
+    top: 20%;
+    right: -200px;
+}
+
+/* =========================================
+   Responsive Adjustments
+   ========================================= */
+@media (max-width: 1024px) {
+    .split-layout, .split-layout.reverse { grid-template-columns: 1fr; gap: 2rem; }
+    h2 { font-size: 2.5rem; }
+    .hero-title { font-size: 3.5rem; }
+    .slide { padding: 6rem 2rem 2rem 2rem; }
+}
+
+@media (max-width: 768px) {
+    .three-cols, .revenue-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1.2rem; }
+    .global-header { padding: 1rem 2rem; }
+    .controls { bottom: 1rem; right: 2rem; }
+    .contact-buttons { flex-direction: column; gap: 1rem; }
+    .stats-row { gap: 2rem; flex-direction: column; text-align: center; }
+}

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pitch Deck Corporativo | NutriHouse</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Phosphor Icons para íconos modernos -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    
+    <!-- Controles de navegación y logo global -->
+    <header class="global-header">
+        <img src="../branding/logo_transparent.png" alt="NutriHouse Logo" class="brand-logo">
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+    </header>
+
+    <div class="controls">
+        <button id="prev-btn" class="nav-btn"><i class="ph ph-caret-left"></i></button>
+        <button id="next-btn" class="nav-btn"><i class="ph ph-caret-right"></i></button>
+    </div>
+
+    <!-- Contenedor principal de slides -->
+    <main class="deck-container">
+        
+        <!-- Slide 1: Portada B2B -->
+        <section class="slide" id="slide-1">
+            <div class="slide-content text-center hero-slide">
+                <div class="hero-logo-container">
+                    <img src="../branding/logo_transparent.png" alt="NutriHouse" class="hero-logo">
+                </div>
+                <div class="tag-label mt-4">Soluciones en Nutrición y Bienestar: NutriCorp</div>
+                <h1 class="hero-title">BIENESTAR QUE <span class="text-green">TRANSFORMA</span> A TU EQUIPO</h1>
+                <p class="hero-subtitle">Potenciando la productividad empresarial a través de la salud integral.</p>
+                <button class="cta-button" onclick="document.getElementById('next-btn').click()">Ver Propuesta Corporativa</button>
+            </div>
+            <div class="bg-glow magenta-glow"></div>
+        </section>
+
+        <!-- Slide 2: El Contexto y el Problema -->
+        <section class="slide" id="slide-2">
+            <div class="slide-content split-layout">
+                <div class="layout-text">
+                    <div class="tag-label">El Impacto en el Perú</div>
+                    <h2>Los retos de salud en las <span>empresas</span></h2>
+                    <p class="body-text">Actualmente, el <strong>30% de peruanos</strong> tendrán problemas de obesidad y sobrepeso, y esto impacta directamente en el entorno laboral y la rentabilidad.</p>
+                </div>
+                <div class="layout-visual bento-grid">
+                    <div class="bento-card alert-card">
+                        <i class="ph-fill ph-warning-circle text-magenta"></i>
+                        <h3>Ausentismo y Cansancio</h3>
+                        <p>Ausencia por enfermedades prevenibles y baja energía debido a malos hábitos alimenticios.</p>
+                    </div>
+                    <div class="bento-card alert-card">
+                        <i class="ph-fill ph-trend-down text-magenta"></i>
+                        <h3>Estrés Laboral</h3>
+                        <p>Aumento de ansiedad y estrés por la falta de una cultura de prevención en salud.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: La Solución NutriCorp -->
+        <section class="slide" id="slide-3">
+            <div class="slide-content text-center">
+                <div class="tag-label mx-auto">La Solución NutriCorp</div>
+                <h2>¿Cómo transformamos tu <span>organización</span>?</h2>
+                <p class="body-text mx-auto max-w-lg">Ofrecemos soluciones personalizadas que optimizan la salud de los colaboradores e incrementan la productividad.</p>
+                
+                <div class="solution-cards three-cols">
+                    <div class="glass-card">
+                        <div class="icon-circle bg-green-light"><i class="ph ph-stethoscope"></i></div>
+                        <h4>Diagnóstico</h4>
+                        <p>Evaluación de hábitos alimenticios y bienestar general de tu equipo.</p>
+                    </div>
+                    <div class="glass-card">
+                        <div class="icon-circle bg-magenta-light"><i class="ph ph-users"></i></div>
+                        <h4>Programas a Medida</h4>
+                        <p>Planes nutricionales adaptados y actividades físicas o mentales integrales.</p>
+                    </div>
+                    <div class="glass-card">
+                        <div class="icon-circle bg-green-light"><i class="ph ph-chalkboard-teacher"></i></div>
+                        <h4>Capacitaciones</h4>
+                        <p>Talleres educativos sobre prevención de enfermedades y cocina saludable.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-glow green-glow"></div>
+        </section>
+
+        <!-- Slide 4: Propuesta de Valor y Retorno (ROI) -->
+        <section class="slide" id="slide-4">
+            <div class="slide-content split-layout reverse">
+                <div class="layout-text">
+                    <div class="tag-label">Retorno de Inversión (ROI)</div>
+                    <h2>¿Por qué invertir en la salud de tu <span>equipo</span>?</h2>
+                    <p class="body-text">Con un enfoque localizado en la realidad cultural peruana, generamos impacto medible.</p>
+                </div>
+                <div class="layout-visual">
+                    <div class="value-card B2B">
+                        <div class="value-header">
+                            <i class="ph-fill ph-chart-line-up text-magenta"></i>
+                            <h3>Resultados Corporativos</h3>
+                        </div>
+                        <ul>
+                            <li><i class="ph ph-check-circle"></i> <strong>Aumento de la Productividad:</strong> Empleados saludables rinden mejor.</li>
+                            <li><i class="ph ph-check-circle"></i> <strong>Mejor Clima Laboral:</strong> Los programas fortalecen la cohesión del equipo.</li>
+                            <li><i class="ph ph-check-circle"></i> <strong>Retención de Talento:</strong> Aumenta la satisfacción y fidelización.</li>
+                            <li><i class="ph ph-check-circle"></i> <strong>Reducción de Costos:</strong> Menor gasto en licencias y atenciones médicas.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Planes Corporativos -->
+        <section class="slide" id="slide-5">
+            <div class="slide-content text-center">
+                <div class="tag-label mx-auto">Nuestros Planes</div>
+                <h2>Nutrihouse para tu <span>Empresa</span></h2>
+                
+                <div class="revenue-grid mt-5">
+                    <div class="revenue-item bento-glass">
+                        <div class="revenue-icon"><i class="ph ph-play-circle text-green"></i></div>
+                        <h4>Plan Inicial</h4>
+                        <p>Evaluación nutricional diagnóstica y taller introductorio de bienestar para los colaboradores.</p>
+                    </div>
+                    <div class="revenue-item bento-glass featured">
+                        <div class="revenue-icon"><i class="ph ph-briefcase text-magenta"></i></div>
+                        <h4>Plan Integral</h4>
+                        <p>Programa de seguimiento continuo con un enfoque unificado nutricional, físico y mental.</p>
+                    </div>
+                    <div class="revenue-item bento-glass">
+                        <div class="revenue-icon"><i class="ph ph-star text-green"></i></div>
+                        <h4>Experiencia Premium</h4>
+                        <p>Solución 360° que integra eventos de salud (Ferias), talleres y consultoría corporativa continua.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-glow center-glow"></div>
+        </section>
+
+        <!-- Slide 6: Tracción y Autoridad -->
+        <section class="slide" id="slide-6">
+            <div class="slide-content">
+                <div class="text-center mb-5">
+                    <div class="tag-label mx-auto">Autoridad</div>
+                    <h2>Respaldados por sólidas <span>alianzas institucionales</span></h2>
+                    <p class="body-text">Con resultados demostrados en organizaciones de primer nivel en el Perú.</p>
+                </div>
+                
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <h3 class="text-magenta">+9</h3>
+                        <p>Años de experiencia en el mercado</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="text-green">B2B</h3>
+                        <p>Especialistas en Salud Corporativa</p>
+                    </div>
+                </div>
+
+                <div class="logos-grid mt-5">
+                    <div class="client-box">Clínica Auna</div>
+                    <div class="client-box">Ferreyros CAT</div>
+                    <div class="client-box">UCV</div>
+                    <div class="client-box">USS</div>
+                    <div class="client-box">Compartamos Financiera</div>
+                    <div class="client-box">Colegio de Enfermeros</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Beneficios de una Alianza -->
+        <section class="slide" id="slide-7">
+            <div class="slide-content split-layout">
+                <div class="layout-visual">
+                    <div class="profile-card bento-glass p-4 text-left">
+                        <h3 class="text-green mb-3">Beneficios Exclusivos</h3>
+                        <ul style="list-style: none; color: var(--gray-light); line-height: 2;">
+                            <li><i class="ph ph-handshake text-magenta mr-2"></i> Tarifas preferenciales para colaboradores</li>
+                            <li><i class="ph ph-calendar-star text-magenta mr-2"></i> Actividades conjuntas y Ferias de Salud</li>
+                            <li><i class="ph ph-projector-screen text-magenta mr-2"></i> Charlas y talleres educativos in-house</li>
+                            <li><i class="ph ph-shield-check text-magenta mr-2"></i> Acceso total a programas de bienestar</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="layout-text pl-4">
+                    <div class="tag-label">Alianzas Estratégicas</div>
+                    <h2>Mucho más que un <span>proveedor</span></h2>
+                    <p class="body-text">En Nutrihouse buscamos ser un aliado estratégico. Formar una alianza institucional con nosotros no solo significa tercerizar un servicio, sino aportar <strong>valor agregado directo</strong> a la vida de tu talento humano, garantizando flexibilidad y servicios innovadores.</p>
+                </div>
+            </div>
+            <div class="bg-glow magenta-glow-right"></div>
+        </section>
+
+        <!-- Slide 8: Cierre B2B -->
+        <section class="slide" id="slide-8">
+            <div class="slide-content text-center hero-slide final-slide">
+                <h2 class="hero-title">¡Es hora de dar el primer paso hacia una <span>empresa más saludable</span>!</h2>
+                <p class="hero-subtitle mb-5">Contáctanos para una consulta y empieza a mejorar el clima laboral, la productividad y el bienestar de tu equipo hoy mismo.</p>
+                
+                <div class="contact-buttons">
+                    <a href="mailto:nutrihousek@gmail.com" class="cta-button primary"><i class="ph ph-envelope-simple"></i> nutrihousek@gmail.com</a>
+                    <a href="https://wa.me/51964856778" class="cta-button whatsapp"><i class="ph ph-whatsapp-logo"></i> +51 964 856 778</a>
+                </div>
+                
+                <p class="mt-5 text-sm text-gray">
+                    <i class="ph ph-map-pin"></i> Presencial, Online o In-House <br>
+                    <strong>Lic. Karina Sobrino (Fundadora)</strong> | Nutrición Basada en Ciencia
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
