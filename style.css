@@ -164,7 +164,7 @@ h2 span:nth-child(even) {
 
 .progress-bar {
     height: 100%;
-    width: 12.5%; /* 1 of 8 slides */
+    width: 11.11%; /* 1 of 9 slides */
     background-color: var(--magenta-vital);
     transition: width 0.3s ease;
 }
